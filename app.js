@@ -162,7 +162,10 @@ const countryList = {
   
 const BASE_URL = "https://2024-03-06.currency-api.pages.dev/v1/currencies/eur.json";
 const dropdowns = document.querySelectorAll(".dropdown select");
-     //check all country code
+const btn = document.querySelector("form button");  
+const fromCurr = document.querySelector(".from select");
+const toCurr = document.querySelector(".to select");
+//check all country code
 // for (code in countryList){
 //     console.log(code , countryList[code]);
 // }
@@ -193,5 +196,21 @@ const updateFlage =(element) => {
    let img= element.parentElement.querySelector("img");
    img.src=newSrc;
 };
+
+
+btn.addEventListener("click" , (evt) => {
+    evt.preventDefault();
+    let amount = document.querySelector("form input");
+    let amtVal = amount.value;
+    // console.log(amtVal);
+    if(amtVal === "" || amtVal < 1){
+        amtVal = 1; //reset
+        amount.value ="1";
+    }
+    // console.log(fromCurr.value, toCurr.value);
+const URL = `$ { BASE_URL}/${fromCurr.value.toLowerCase()}/${toCurr.value.toLowerCase()}.json`;
+ 
+
+});
 
 

@@ -1,0 +1,3 @@
+Option= in this code option is gives to select other country code and currency.and it's add to select.(append)
+
+evt.preventDefault();=>is used to user his self any work.. 
