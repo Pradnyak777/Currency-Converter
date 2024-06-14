@@ -198,7 +198,7 @@ const updateFlage =(element) => {
 };
 
 
-btn.addEventListener("click" , (evt) => {
+btn.addEventListener("click" ,async (evt) => {
     evt.preventDefault();
     let amount = document.querySelector("form input");
     let amtVal = amount.value;
@@ -209,8 +209,9 @@ btn.addEventListener("click" , (evt) => {
     }
     // console.log(fromCurr.value, toCurr.value);
 const URL = `$ { BASE_URL}/${fromCurr.value.toLowerCase()}/${toCurr.value.toLowerCase()}.json`;
- 
-
+ let response = await fetch(URL);
+ let data = await response.json();
+ console.log(data);
 });
 
 
